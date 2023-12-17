@@ -9,7 +9,7 @@ Welcome to my Unity Shaders repository! This collection showcases a variety of s
 - [Getting Started](#getting-started)
 - [License](#license)
 
-## About
+## <a name="about"></a> About
 
 This repository serves as my personal portfolio, showcasing my proficiency in creating diverse and innovative shader effects within the Unity environment. Each project encapsulates unique shader concepts, providing insights into my skills and approach to real-time graphics.
 
