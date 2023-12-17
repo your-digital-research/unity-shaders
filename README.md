@@ -9,9 +9,15 @@ Welcome to my Unity Shaders repository! This collection showcases a variety of s
 - [Getting Started](#getting-started)
 - [License](#license)
 
-## <a name="about"></a> About
+## About
 
-This repository functions as my personal portfolio, demonstrating my proficiency in creating diverse and innovative shader effects within the Unity environment. Each project encapsulates unique shader concepts, providing insights into my skills and approach to real-time graphics.
+This repository serves as my personal portfolio, showcasing my proficiency in creating diverse and innovative shader effects within the Unity environment. Each project encapsulates unique shader concepts, providing insights into my skills and approach to real-time graphics.
+
+The shader examples featured in this repository are crafted following tutorials from two invaluable sources:
+- [Acegikmo's YouTube Channel](https://www.youtube.com/@Acegikmo/videos): A wealth of knowledge in shader development that has inspired and guided many of the projects here.
+- [Jettelly](https://www.jettelly.com/): Exceptional tutorials and resources that have contributed significantly to the learning and implementation of advanced shader techniques.
+
+These tutorials have been instrumental in shaping the concepts demonstrated in the shader projects you find in this repository. I'm grateful for the guidance and inspiration provided by these tutorial creators.
 
 The primary goals of this repository are:
 - **Portfolio Display:** Showcasing my shader development skills and creativity.
