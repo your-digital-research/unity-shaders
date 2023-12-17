@@ -84,3 +84,6 @@ crashlytics-build.properties
 # Other
 *.backup
 *.vsconfig
+
+# Ignore folder
+/**/__Ignore__
