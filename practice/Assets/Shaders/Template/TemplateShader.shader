@@ -1,4 +1,4 @@
-Shader "Practice/TemplateShader"
+Shader "Template/TemplateShader"
 {
     Properties
     {
