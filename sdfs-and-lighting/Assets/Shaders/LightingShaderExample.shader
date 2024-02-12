@@ -71,6 +71,9 @@ Shader "Personal/LightingShaderExample"
 
             float4 frag(Interpolators i) : SV_Target
             {
+                // BRDF - Bidirectional Reflectance Distribution Function
+                // PBR - Physically Based Rendering
+
                 // Remap glossiness variable
                 float specularExponent = exp2(_Gloss * 7) + 2;
 
@@ -122,6 +125,8 @@ Shader "Personal/LightingShaderExample"
                     specularLight *= lambertian > 0; // to remove spotlight at certain angle
                     specularLight = pow(specularLight, specularExponent); // Specular exponent -> _GLoss
                 #endif
+
+                // return float4(specularLight, 1);
 
                 // Final Color
                 float4 finalColor;
