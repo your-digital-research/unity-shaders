@@ -116,15 +116,13 @@ Shader "Personal/LightingShaderExample"
                 // Choose specular
                 #if _SPECULARTYPE_PHONG
                     specularLight = saturate(dot(V, R));
-                    specularLight *= lightColor;
-                    specularLight *= lambertian > 0; // to remove spotlight at certain angle
-                    specularLight = pow(specularLight, specularExponent); // Specular exponent -> _GLoss
                 #elif _SPECULARTYPE_BLINN
                     specularLight = saturate(dot(H, N));
-                    specularLight *= lightColor;
-                    specularLight *= lambertian > 0; // to remove spotlight at certain angle
-                    specularLight = pow(specularLight, specularExponent); // Specular exponent -> _GLoss
                 #endif
+
+                specularLight *= lightColor;
+                specularLight *= lambertian > 0; // to remove spotlight at certain angle
+                specularLight = pow(specularLight, specularExponent); // Specular exponent -> _GLoss
 
                 // return float4(specularLight, 1);
 
