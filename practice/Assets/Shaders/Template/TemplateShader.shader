@@ -9,6 +9,7 @@ Shader "Template/TemplateShader"
         Tags
         {
             "RenderType"="Opaque"
+            "Queue"="Geometry"
         }
 
         Pass
