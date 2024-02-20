@@ -11,11 +11,18 @@ sampler2D _MainTex;
 sampler2D _NormalTex;
 sampler2D _HeightTex;
 sampler2D _DiffuseIBL;
+sampler2D _SpecularIBL;
+
 float _Gloss;
+float _Fresnel;
+
 float4 _Color;
 float4 _AmbientLight;
+
 float _NormalIntensity;
 float _HeightIntensity;
+float _DiffuseIBLIntensity;
+float _SpecularIBLIntensity;
 
 float2 DirectionToRectilinear(float3 direction)
 {
@@ -85,10 +92,18 @@ Interpolators vert(MeshData v)
 
 float4 frag(Interpolators i) : SV_Target
 {
+    // Debug for Image Based Lighting
     // #ifdef BASE_PASS
-    //     float3 diffuseIBL = tex2Dlod(_DiffuseIBL, float4(DirectionToRectilinear(i.normal), 0, 0)).xyz;
+    //     // float3 diffuseIBL = tex2Dlod(_DiffuseIBL, float4(DirectionToRectilinear(i.normal), 0, 0)).xyz;
+    //     // return float4(diffuseIBL, 0);
     //
-    //     return float4(diffuseIBL, 0);
+    //     float mipLevel = 5;
+    //     float mip = (1 - _Gloss) * mipLevel;
+    //     float3 view = normalize(_WorldSpaceCameraPos - i.worldPosition);
+    //     float3 reflection = reflect(-view, i.normal);
+    //     float3 specularIBL = tex2Dlod(_SpecularIBL, float4(DirectionToRectilinear(reflection), mip, mip)).xyz;
+    //
+    //     return float4(specularIBL, 0);
     // #else
     //     return float4(0, 0, 0, 0);
     // #endif
@@ -103,6 +118,7 @@ float4 frag(Interpolators i) : SV_Target
 
     tangentSpaceNormals = normalize(lerp(float3(0, 0, 1), tangentSpaceNormals, _NormalIntensity));
 
+    // Debug for tangents
     // #ifdef BASE_PASS
     //     return float4(tangentSpaceNormals, 0);
     // #else
@@ -154,7 +170,7 @@ float4 frag(Interpolators i) : SV_Target
             diffuseLight += _AmbientLight;
 
             // Add diffuse lighting calculated from image
-            diffuseLight += diffuseIBL;
+            diffuseLight += diffuseIBL * _DiffuseIBLIntensity;
         #endif
 
         // Specular Lighting //
@@ -185,6 +201,20 @@ float4 frag(Interpolators i) : SV_Target
         specularLight *= lambertian > 0; // to remove spotlight at certain angle
         specularLight = pow(specularLight, specularExponent); // Specular exponent -> _GLoss
         specularLight *= attenuation;
+
+        #ifdef BASE_PASS
+            // Use fresnel to reduce the reflection at the center
+            float fresnel = pow(1 - saturate(dot(V, N)), _Fresnel);
+
+            float mipLevel = 5;
+            float mip = (1 - _Gloss) * mipLevel;
+
+            float3 reflection = reflect(-V, N);
+
+            float3 specularIBL = tex2Dlod(_SpecularIBL, float4(DirectionToRectilinear(reflection), mip, mip)).xyz;
+
+            specularLight += specularIBL * _SpecularIBLIntensity * fresnel;
+        #endif
 
         // return float4(specularLight, 1);
 

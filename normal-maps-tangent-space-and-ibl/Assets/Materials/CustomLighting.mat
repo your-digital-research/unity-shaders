@@ -40,13 +40,20 @@ Material:
         m_Texture: {fileID: 2800000, guid: 1e4483c901dec4abfaba4a397d9e120c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SpecularIBL:
+        m_Texture: {fileID: 2800000, guid: 04c92a032bccb45b49db7e68a323c354, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Gloss: 0.5
-    - _HeightIntensity: 0.05
-    - _NormalIntensity: 1
+    - _DiffuseIBLIntensity: 0.5
+    - _Fresnel: 5
+    - _Gloss: 1
+    - _HeightIntensity: 0
+    - _NormalIntensity: 0
+    - _SpecularIBLIntensity: 0.1
     - _SpecularType: 0
     m_Colors:
-    - _AmbientLight: {r: 0, g: 0, b: 0, a: 1}
+    - _AmbientLight: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
