@@ -21,49 +21,14 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _BlendTexture:
-        m_Texture: {fileID: 2800000, guid: 646b19395f565477680173b122ebf154, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 2800000, guid: e117786179ec340ac8368c1103571577, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _Noise:
-        m_Texture: {fileID: 2800000, guid: 67ed3e02dfb0b49c097da1a483d331c9, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Pattern:
-        m_Texture: {fileID: 2800000, guid: 4aec77e8f3fc157488a8c1a7d5698fb5, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Amplitude: 0.25
-    - _BorderSize: 0.25
-    - _BordersWithRoundedCorners: 0
-    - _ClipBackground: 0
-    - _ColorEnd: 1
-    - _ColorStart: 0
-    - _End: 0.75
-    - _Frequency: 5
     - _Gloss: 0.5
-    - _Health: 1
-    - _Magnitude: 0.15
-    - _RenderType: 0
-    - _RoundedCorners: 0
     - _SpecularType: 0
-    - _Speed: 0.25
-    - _Start: 0.25
-    - _Threshold: 0.25
-    - _Transparency: 1
-    - _UseTexture: 0
-    - _YScale: 0.2
     m_Colors:
-    - _BackgroundColor: {r: 0, g: 0, b: 0, a: 1}
     - _Color: {r: 0.6603774, g: 0.6603774, b: 0.6603774, a: 1}
-    - _ColorFrom: {r: 0, g: 1, b: 0.051280737, a: 1}
-    - _ColorTo: {r: 0, g: 0.73947906, b: 1, a: 1}
-    - _FromColor: {r: 1, g: 0, b: 0, a: 1}
-    - _ToColor: {r: 0, g: 1, b: 0, a: 1}
   m_BuildTextureStacks: []
