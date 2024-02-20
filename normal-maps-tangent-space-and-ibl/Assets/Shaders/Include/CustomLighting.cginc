@@ -11,6 +11,7 @@ sampler2D _NormalTex;
 sampler2D _HeightTex;
 float _Gloss;
 float4 _Color;
+float4 _AmbientLight;
 float _NormalIntensity;
 float _HeightIntensity;
 
@@ -126,6 +127,11 @@ float4 frag(Interpolators i) : SV_Target
         // Diffuse Light
         // float3 diffuseLight = lambertian * lightColor;
         float3 diffuseLight = lambertian * attenuation * lightColor;
+
+        #ifdef BASE_PASS
+            // Adds the indirect diffuse lighting
+            diffuseLight += _AmbientLight;
+        #endif
 
         // Specular Lighting //
 
