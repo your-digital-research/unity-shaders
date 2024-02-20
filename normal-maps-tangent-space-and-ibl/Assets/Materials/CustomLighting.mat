@@ -24,6 +24,10 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _DiffuseIBL:
+        m_Texture: {fileID: 2800000, guid: 04c92a032bccb45b49db7e68a323c354, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _HeightTex:
         m_Texture: {fileID: 2800000, guid: 76dcccf4f7fa34a3dba5ce9f4b9386e8, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -43,6 +47,6 @@ Material:
     - _NormalIntensity: 1
     - _SpecularType: 0
     m_Colors:
-    - _AmbientLight: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    - _AmbientLight: {r: 0, g: 0, b: 0, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []

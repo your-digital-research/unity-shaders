@@ -3,17 +3,27 @@
 #include "AutoLight.cginc"
 
 #define USE_LIGHTING
+#define TAU 6.2831855
 
 #pragma multi_compile _SPECULARTYPE_PHONG _SPECULARTYPE_BLINN
 
 sampler2D _MainTex;
 sampler2D _NormalTex;
 sampler2D _HeightTex;
+sampler2D _DiffuseIBL;
 float _Gloss;
 float4 _Color;
 float4 _AmbientLight;
 float _NormalIntensity;
 float _HeightIntensity;
+
+float2 DirectionToRectilinear(float3 direction)
+{
+    float x = atan2(direction.z, direction.x) / TAU + 0.5; // Range from 0 to 1
+    float y = direction.y * 0.5 + 0.5; // Range from 0 to 1
+
+    return float2(x, y);
+}
 
 struct MeshData
 {
@@ -75,6 +85,14 @@ Interpolators vert(MeshData v)
 
 float4 frag(Interpolators i) : SV_Target
 {
+    // #ifdef BASE_PASS
+    //     float3 diffuseIBL = tex2Dlod(_DiffuseIBL, float4(DirectionToRectilinear(i.normal), 0, 0)).xyz;
+    //
+    //     return float4(diffuseIBL, 0);
+    // #else
+    //     return float4(0, 0, 0, 0);
+    // #endif
+
     float3 mainTex = tex2D(_MainTex, i.uv).rgb;
     float3 surface = mainTex * _Color.rgb;
 
@@ -128,9 +146,15 @@ float4 frag(Interpolators i) : SV_Target
         // float3 diffuseLight = lambertian * lightColor;
         float3 diffuseLight = lambertian * attenuation * lightColor;
 
+        // Calculate diffuse lighting from image
+        float3 diffuseIBL = tex2Dlod(_DiffuseIBL, float4(DirectionToRectilinear(N), 0, 0)).xyz;
+
         #ifdef BASE_PASS
             // Adds the indirect diffuse lighting
             diffuseLight += _AmbientLight;
+
+            // Add diffuse lighting calculated from image
+            diffuseLight += diffuseIBL;
         #endif
 
         // Specular Lighting //

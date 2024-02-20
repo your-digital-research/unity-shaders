@@ -6,6 +6,7 @@ Shader "Personal/CustomLighting"
         [NoScaleOffset] _MainTex ("Main Texture", 2D) = "white" {}
         [NoScaleOffset] _NormalTex ("Normal Texture", 2D) = "bump" {}
         [NoScaleOffset] _HeightTex ("Height Texture", 2D) = "gray" {}
+        [NoScaleOffset] _DiffuseIBL ("Diffuse Image Based Lighting", 2D) = "black" {}
 
         [Header(Settings)] [Space]
         _Gloss ("Gloss", Range(0, 1)) = 1
