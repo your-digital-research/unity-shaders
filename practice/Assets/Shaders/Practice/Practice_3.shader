@@ -2,7 +2,7 @@ Shader "Practice/Practice_3"
 {
     Properties
     {
-        [Header(Settings)] [Space]
+        [Header(Textures)] [Space]
         [NoScaleOffset] _MainTex ("Main Texture", 2D) = "white" {}
 
         [Header(Settings)] [Space]
