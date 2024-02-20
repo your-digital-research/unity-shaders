@@ -21,10 +21,6 @@ Material:
     serializedVersion: 3
     m_TexEnvs: []
     m_Ints: []
-    m_Floats:
-    - _ColorEnd: 1
-    - _ColorStart: 0
-    m_Colors:
-    - _FromColor: {r: 1, g: 0, b: 0, a: 1}
-    - _ToColor: {r: 0.119199276, g: 0, b: 1, a: 1}
+    m_Floats: []
+    m_Colors: []
   m_BuildTextureStacks: []
