@@ -2,12 +2,16 @@ Shader "Personal/CustomLighting"
 {
     Properties
     {
-        [Header(Settings)] [Space]
+        [Header(Textures)] [Space]
         [NoScaleOffset] _MainTex ("Main Texture", 2D) = "white" {}
+        [NoScaleOffset] _NormalTex ("Normal Texture", 2D) = "bump" {}
+        [NoScaleOffset] _HeightTex ("Height Texture", 2D) = "gray" {}
 
         [Header(Settings)] [Space]
         _Gloss ("Gloss", Range(0, 1)) = 1
         _Color ("Color", Color) = (1, 1, 1, 1)
+        _NormalIntensity ("Normal Intensity", Range(0, 1)) = 1
+        _HeightIntensity ("Height Intensity", Range(0, 1)) = 0.05
 
         [Header(Specular)] [Space]
         [KeywordEnum(Phong, Blinn)]
