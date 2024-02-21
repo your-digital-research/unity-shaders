@@ -1,4 +1,4 @@
-Shader "Practice/Practice_2"
+Shader "Practice/HealthBar"
 {
     Properties
     {

@@ -1,4 +1,4 @@
-Shader "Practice/Practice_3"
+Shader "Practice/CustomLighting"
 {
     Properties
     {
