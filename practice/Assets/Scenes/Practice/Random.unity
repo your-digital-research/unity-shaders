@@ -896,7 +896,7 @@ GameObject:
   m_Component:
   - component: {fileID: 534478295}
   m_Layer: 0
-  m_Name: Group_3_DiffuseTest
+  m_Name: Group_4_DiffuseTest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
