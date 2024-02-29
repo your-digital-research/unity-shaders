@@ -58,7 +58,7 @@ Shader "Practice/AmbientTest"
 
             float4 frag(Interpolators i) : SV_Target
             {
-                float4 mainTexture = tex2D(_MainTexture, i.uv);
+                const float4 mainTexture = tex2D(_MainTexture, i.uv);
 
                 const float3 unityAmbientColor = UNITY_LIGHTMODEL_AMBIENT * _AmbientIntensity;
                 const float3 manualAmbientColor = _AmbientColor * _AmbientIntensity;
