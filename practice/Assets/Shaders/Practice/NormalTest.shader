@@ -96,14 +96,12 @@ Shader "Practice/NormalTest"
 
             float4 frag(Interpolators i) : SV_Target
             {
-                float3 surface;
+                const float4 mainTexture = tex2D(_MainTexture, i.uv);
+                // return mainTexture;
 
-                float4 main_texture = tex2D(_MainTexture, i.uv);
-                // return main_texture;
-
-                float4 normal_map = tex2D(_NormalMap, i.uvNormal);
-                float3 normal_compressed = DXTCompression(normal_map);
-                // float3 normal_compressed = UnpackNormal(normal_map);
+                const float4 normalMap = tex2D(_NormalMap, i.uvNormal);
+                float3 normal_compressed = DXTCompression(normalMap);
+                // float3 normal_compressed = UnpackNormal(normalMap);
                 // return float4(normal_compressed, 0);
 
                 normal_compressed = normalize(lerp(float3(0, 0, 1), normal_compressed, _NormalIntensity));
@@ -119,7 +117,7 @@ Shader "Practice/NormalTest"
                 //
                 // float3 normalColor = normalize(mul(normal_compressed, MatrixTBN));
 
-                float3x3 MatrixTBN =
+                const float3x3 MatrixTBN =
                 {
                     i.tangentWorld.x, i.biNormalWorld.x, i.normalWorld.x,
                     i.tangentWorld.y, i.biNormalWorld.y, i.normalWorld.y,
@@ -129,7 +127,7 @@ Shader "Practice/NormalTest"
                 float3 normalColor = normalize(mul(MatrixTBN, normal_compressed));
                 // return float4(normalColor, 0);
 
-                surface = main_texture * _Color;
+                float3 surface = mainTexture * _Color;
                 return float4(surface, 1);
             }
             ENDCG
