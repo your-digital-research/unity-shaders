@@ -12,7 +12,9 @@ Shader "Practice/SpecularTest"
         [Toggle] _UseSpecularTexture ("Use Specular Texture", Float) = 0
         [NoScaleOffset] _SpecularTexture ("Specular Texture", 2D) = "black" {}
         _SpecularIntensity ("Specular Intensity", Range(0, 1)) = 1
-        _SpecularPower ("Specular Power", Range(1, 128)) = 64
+        _SpecularPower ("Specular Power", Range(1, 128)) = 32
+        [KeywordEnum(Phong, Blinn)]
+        _SpecularType ("Specular Type", Float) = 0
     }
     SubShader
     {
@@ -34,6 +36,7 @@ Shader "Practice/SpecularTest"
             #pragma fragment frag
 
             #pragma shader_feature _USESPECULARTEXTURE_ON
+            #pragma multi_compile _SPECULARTYPE_PHONG _SPECULARTYPE_BLINN
 
             #include "UnityCG.cginc"
             #include "Lighting.cginc"
@@ -65,9 +68,17 @@ Shader "Practice/SpecularTest"
             uniform float _SpecularIntensity;
             uniform float _SpecularPower;
 
-            float3 SpecularShading(float3 reflectionColor, float specularIntensity, float3 normal, float3 lightDirection, float3 viewDirection, float specularPower)
+            float3 PhongSpecularShading(float3 reflectionColor, float specularIntensity, float3 normal, float3 lightDirection, float3 viewDirection, float specularPower)
             {
-                const float3 halfVector = normalize(lightDirection + viewDirection); // Halfway
+                const float3 reflection = normalize(reflect(-lightDirection, normal)); // Reflection vector
+
+                // return reflectionColor * specularIntensity * pow(max(0, dot(viewDirection, reflection)), specularPower);
+                return reflectionColor * specularIntensity * pow(saturate(dot(viewDirection, reflection)), specularPower);
+            }
+
+            float3 BlinnPhongSpecularShading(float3 reflectionColor, float specularIntensity, float3 normal, float3 lightDirection, float3 viewDirection, float specularPower)
+            {
+                const float3 halfVector = normalize(lightDirection + viewDirection); // Halfway vector
 
                 // return reflectionColor * specularIntensity * pow(max(0, dot(normal, halfVector)), specularPower);
                 return reflectionColor * specularIntensity * pow(saturate(dot(normal, halfVector)), specularPower);
@@ -102,7 +113,12 @@ Shader "Practice/SpecularTest"
                 const float3 lightDirection = normalize(_WorldSpaceLightPos0.xyz);
                 const float3 viewDirection = normalize(_WorldSpaceCameraPos - i.worldPosition);
 
-                float3 specular = SpecularShading(reflectionColor, _SpecularIntensity, normal, lightDirection, viewDirection, _SpecularPower);
+                // Choose specular
+                #if _SPECULARTYPE_PHONG
+                    float3 specular = PhongSpecularShading(reflectionColor, _SpecularIntensity, normal, lightDirection, viewDirection, _SpecularPower);
+                #elif _SPECULARTYPE_BLINN
+                    float3 specular = BlinnPhongSpecularShading(reflectionColor, _SpecularIntensity, normal, lightDirection, viewDirection, _SpecularPower);
+                #endif
 
                 // Remove weird spotlight at certain angle by multiplying with Lambertian
                 const float3 lambert = saturate(dot(normal, lightDirection));
