@@ -102,7 +102,11 @@ Shader "Practice/SpecularTest"
                 const float3 lightDirection = normalize(_WorldSpaceLightPos0.xyz);
                 const float3 viewDirection = normalize(_WorldSpaceCameraPos - i.worldPosition);
 
-                const float3 specular = SpecularShading(reflectionColor, _SpecularIntensity, normal, lightDirection, viewDirection, _SpecularPower);
+                float3 specular = SpecularShading(reflectionColor, _SpecularIntensity, normal, lightDirection, viewDirection, _SpecularPower);
+
+                // Remove weird spotlight at certain angle by multiplying with Lambertian
+                const float3 lambert = saturate(dot(normal, lightDirection));
+                specular *= lambert > 0;
 
                 float3 surface = mainTexture * _Color;
                 surface.rgb += specular;
