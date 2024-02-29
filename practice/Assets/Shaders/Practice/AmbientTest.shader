@@ -58,18 +58,20 @@ Shader "Practice/AmbientTest"
 
             float4 frag(Interpolators i) : SV_Target
             {
-                float4 color = tex2D(_MainTexture, i.uv);
+                float4 mainTexture = tex2D(_MainTexture, i.uv);
 
-                float3 unityAmbientColor = UNITY_LIGHTMODEL_AMBIENT * _AmbientIntensity;
-                float3 manualAmbientColor = _AmbientColor * _AmbientIntensity;
+                const float3 unityAmbientColor = UNITY_LIGHTMODEL_AMBIENT * _AmbientIntensity;
+                const float3 manualAmbientColor = _AmbientColor * _AmbientIntensity;
+
+                float3 surface = mainTexture;
 
                 #ifdef _USEUNITYAMBIENTCOLOR_ON
-                    color.rgb += unityAmbientColor;
+                    surface += unityAmbientColor;
                 #endif
 
-                color.rgb += manualAmbientColor;
+                surface += manualAmbientColor;
 
-                return color;
+                return float4(surface, 1);
             }
             ENDCG
         }
