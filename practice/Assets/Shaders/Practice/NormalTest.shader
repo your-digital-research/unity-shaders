@@ -100,12 +100,12 @@ Shader "Practice/NormalTest"
                 // return mainTexture;
 
                 const float4 normalMap = tex2D(_NormalMap, i.uvNormal);
-                float3 normal_compressed = DXTCompression(normalMap);
-                // float3 normal_compressed = UnpackNormal(normalMap);
-                // return float4(normal_compressed, 0);
+                float3 normalCompressed = DXTCompression(normalMap);
+                // float3 normalCompressed = UnpackNormal(normalMap);
+                // return float4(normalCompressed, 0);
 
-                normal_compressed = normalize(lerp(float3(0, 0, 1), normal_compressed, _NormalIntensity));
-                // return float4(normal_compressed, 0);
+                normalCompressed = normalize(lerp(float3(0, 0, 1), normalCompressed, _NormalIntensity));
+                // return float4(normalCompressed, 0);
 
                 // Tangent Binormal Normal matrix
                 // float3x3 MatrixTBN = float3x3
@@ -115,7 +115,7 @@ Shader "Practice/NormalTest"
                 //     i.normalWorld
                 // );
                 //
-                // float3 normalColor = normalize(mul(normal_compressed, MatrixTBN));
+                // float3 normalColor = normalize(mul(normalCompressed, MatrixTBN));
 
                 const float3x3 MatrixTBN =
                 {
@@ -124,7 +124,7 @@ Shader "Practice/NormalTest"
                     i.tangentWorld.z, i.biNormalWorld.z, i.normalWorld.z,
                 };
 
-                float3 normalColor = normalize(mul(MatrixTBN, normal_compressed));
+                float3 normalColor = normalize(mul(MatrixTBN, normalCompressed));
                 // return float4(normalColor, 0);
 
                 float3 surface = mainTexture * _Color;
