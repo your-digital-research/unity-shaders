@@ -5,7 +5,7 @@ Shader "Practice/AmbientTest"
         [Header(Textures)] [Space]
         [NoScaleOffset] _MainTexture ("Main Texture", 2D) = "white" {}
 
-        [Header(Settings)] [Space]
+        [Header(Ambient)] [Space]
         [Toggle] _UseUnityAmbientColor ("Use Unity Ambient Color", Float) = 0
         _AmbientColor ("Ambient Color", Color) = (0, 0, 0, 0)
         _AmbientIntensity ("Ambient Intensity", Range(0, 1)) = 0.5

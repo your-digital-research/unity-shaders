@@ -2,11 +2,13 @@ Shader "Practice/DiffuseTest"
 {
     Properties
     {
-        [Header(Textures)]
+        [Header(Surface)] [Space]
+        _Color ("Color", Color) = (1, 1, 1, 1)
+
+        [Header(Textures)] [Space]
         [NoScaleOffset] _MainTexture ("Main Texture", 2D) = "white" {}
 
-        [Header(Settings)]
-        _Color ("Color", Color) = (1, 1, 1, 1)
+        [Header(Settings)] [Space]
         _LightIntensity ("Light Intensity", Range(0, 1)) = 1
     }
     SubShader

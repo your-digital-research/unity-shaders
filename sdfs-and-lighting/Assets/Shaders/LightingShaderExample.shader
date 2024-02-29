@@ -85,7 +85,7 @@ Shader "Personal/LightingShaderExample"
                 // return float4(N, 1);
 
                 float3 L = _WorldSpaceLightPos0.xyz; // Direction, not a position
-                //return float4(L, 1);
+                // return float4(L, 1);
 
                 // Lambertian reflectance
                 // Use max or saturate function
