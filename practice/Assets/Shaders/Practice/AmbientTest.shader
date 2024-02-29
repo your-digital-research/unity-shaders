@@ -3,7 +3,7 @@ Shader "Practice/AmbientTest"
     Properties
     {
         [Header(Textures)] [Space]
-        [NoScaleOffset] _MainTexture ("Texture", 2D) = "white" {}
+        [NoScaleOffset] _MainTexture ("Main Texture", 2D) = "white" {}
 
         [Header(Settings)] [Space]
         [Toggle] _UseUnityAmbientColor ("Use Unity Ambient Color", Float) = 0

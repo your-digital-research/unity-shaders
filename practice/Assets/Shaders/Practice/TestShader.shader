@@ -3,7 +3,7 @@ Shader "Practice/TestShader"
     Properties
     {
         [Header(Textures)]
-        [NoScaleOffset] _MainTexture ("Texture", 2D) = "white" {}
+        [NoScaleOffset] _MainTexture ("Main Texture", 2D) = "white" {}
     }
     SubShader
     {
