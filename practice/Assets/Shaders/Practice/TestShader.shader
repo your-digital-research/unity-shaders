@@ -2,7 +2,8 @@ Shader "Practice/TestShader"
 {
     Properties
     {
-        [NoScaleOffset] _MainTex ("Texture", 2D) = "white" {}
+        [Header(Textures)]
+        [NoScaleOffset] _MainTexture ("Texture", 2D) = "white" {}
     }
     SubShader
     {
@@ -32,22 +33,24 @@ Shader "Practice/TestShader"
                 float2 uv : TEXCOORD0;
             };
 
-            uniform sampler2D _MainTex;
+            uniform sampler2D _MainTexture;
+            uniform float4 _MainTexture_ST;
 
             Interpolators vert(MeshData v)
             {
                 Interpolators o;
 
                 o.vertex = UnityObjectToClipPos(v.vertex);
+                o.uv = TRANSFORM_TEX(v.uv, _MainTexture);
+
                 // o.uv = v.uv * 2 - 1; // Center UV
-                o.uv = v.uv;
 
                 return o;
             }
 
             float4 frag(Interpolators i) : SV_Target
             {
-                // float4 col = tex2D(_MainTex, i.uv);
+                // float4 col = tex2D(_MainTexture, i.uv);
                 // return col;
 
                 float u = i.uv.x;
