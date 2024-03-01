@@ -2,7 +2,7 @@ Shader "Template/TemplateShader"
 {
     Properties
     {
-        [Header(Textures)]
+        [Header(Textures)] [Space]
         [NoScaleOffset] _MainTexture ("Main Texture", 2D) = "white" {}
     }
     SubShader
