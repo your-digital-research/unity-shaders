@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: TemplateMaterial
+  m_Name: TemplateMaterial_BIRP
   m_Shader: {fileID: 4800000, guid: 8c94edec513f146f9ba20f1c696ae789, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []

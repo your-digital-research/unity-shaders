@@ -1,7 +1,10 @@
-Shader "Template/TemplateShader"
+Shader "Template/TemplateShader_URP"
 {
     Properties
     {
+        [Header(Surface)] [Space]
+        _Color ("Color", Color) = (1, 1, 1, 1)
+
         [Header(Textures)] [Space]
         [NoScaleOffset] _MainTexture ("Main Texture", 2D) = "white" {}
     }
@@ -11,15 +14,19 @@ Shader "Template/TemplateShader"
         {
             "RenderType"="Opaque"
             "Queue"="Geometry"
+            "RenderPipeline"="UniversalRenderPipeline"
         }
 
         Pass
         {
-            CGPROGRAM
+            HLSLPROGRAM
             #pragma vertex vert
             #pragma fragment frag
 
-            #include "UnityCG.cginc"
+            // Causes redefinition errors and warning
+            // #include "HLSLSupport.cginc"
+
+            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
 
             struct MeshData
             {
@@ -33,6 +40,8 @@ Shader "Template/TemplateShader"
                 float2 uv : TEXCOORD0;
             };
 
+            uniform float4 _Color;
+
             uniform sampler2D _MainTexture;
             uniform float4 _MainTexture_ST;
 
@@ -40,7 +49,7 @@ Shader "Template/TemplateShader"
             {
                 Interpolators o;
 
-                o.vertex = UnityObjectToClipPos(v.vertex);
+                o.vertex = TransformObjectToHClip(v.vertex);
                 o.uv = TRANSFORM_TEX(v.uv, _MainTexture);
 
                 return o;
@@ -52,9 +61,11 @@ Shader "Template/TemplateShader"
 
                 float3 surface = mainTexture;
 
+                surface.rgb *= _Color;
+
                 return float4(surface, 1);
             }
-            ENDCG
+            ENDHLSL
         }
     }
 }
