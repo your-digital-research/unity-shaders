@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ShadowTest
+  m_Name: ShadowTest_BIRP
   m_Shader: {fileID: 4800000, guid: e752a1e8659f64a6086ccc812031d866, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []

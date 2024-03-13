@@ -1,4 +1,4 @@
-Shader "Practice/ShadowTest"
+Shader "Practice/ShadowTest_BIRP"
 {
     Properties
     {
