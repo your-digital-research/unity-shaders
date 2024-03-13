@@ -1660,7 +1660,7 @@ GameObject:
   m_Component:
   - component: {fileID: 698513467}
   m_Layer: 0
-  m_Name: Group_8_ShadowTest
+  m_Name: Group_8_ShadowTest_BIRP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
