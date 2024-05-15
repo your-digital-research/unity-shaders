@@ -52,23 +52,23 @@ To dive into and experiment with any of the shader examples, follow these simple
 ## <a name="preview"></a> Preview
 
 <p align="center">
-  <img src="Assets/GIF/preview-1.gif" alt="Preview 1" title="Preview 1" width="500">
+  <img src="Assets/GIF/preview-1.gif" alt="Preview 1" title="Preview 1" width="800">
 </p>
 
 <p align="center">
-  <img src="Assets/GIF/preview-2.gif" alt="Preview 2" title="Preview 2" width="500">
+  <img src="Assets/GIF/preview-2.gif" alt="Preview 2" title="Preview 2" width="800">
 </p>
 
 <p align="center">
-  <img src="Assets/GIF/preview-3.gif" alt="Preview 3" title="Preview 3" width="500">
+  <img src="Assets/GIF/preview-3.gif" alt="Preview 3" title="Preview 3" width="800">
 </p>
 
 <p align="center">
-  <img src="Assets/GIF/preview-4.gif" alt="Preview 4" title="Preview 4" width="500">
+  <img src="Assets/GIF/preview-4.gif" alt="Preview 4" title="Preview 4" width="800">
 </p>
 
 <p align="center">
-  <img src="Assets/GIF/preview-5.gif" alt="Preview 5" title="Preview 5" width="500">
+  <img src="Assets/GIF/preview-5.gif" alt="Preview 5" title="Preview 5" width="800">
 </p>
 
 ## <a name="license"></a> License
