@@ -7,6 +7,7 @@ Welcome to my Unity Shaders repository! This collection showcases a variety of s
 - [About](#about)
 - [Examples](#examples)
 - [Getting Started](#getting-started)
+- [Preview](#preview)
 - [License](#license)
 
 ## <a name="about"></a> About
@@ -14,12 +15,14 @@ Welcome to my Unity Shaders repository! This collection showcases a variety of s
 This repository serves as my personal portfolio, showcasing my proficiency in creating diverse and innovative shader effects within the Unity environment. Each example encapsulates unique shader concepts, providing insights into my skills and approach to real-time graphics.
 
 The shader examples featured in this repository are crafted following tutorials from two invaluable sources:
+
 - [Acegikmo's YouTube Channel](https://www.youtube.com/@Acegikmo/videos): A wealth of knowledge in shader development that has inspired and guided many of the examples here.
 - [Jettelly](https://www.jettelly.com/): Exceptional tutorials and resources that have contributed significantly to the learning and implementation of advanced shader techniques.
 
 These tutorials have been instrumental in shaping the concepts demonstrated in the shader examples you find in this repository. I'm grateful for the guidance and inspiration provided by these tutorial creators.
 
 The primary goals of this repository are:
+
 - **Portfolio Display:** Showcasing my shader development skills and creativity.
 - **Education:** Providing examples and insights for educational purposes.
 
@@ -38,12 +41,35 @@ To dive into and experiment with any of the shader examples, follow these simple
 1. **Clone the Repository**
    ```bash
    git clone https://github.com/your-digital-research/unity-shaders
+   ```
 2. **Navigate to the Desired Example**
 3. **Open in Unity**
    - Launch the Unity editor and open the example folder.
    - Explore and modify the shaders as needed.
 4. **Run the Example**
    - Test and run the shader within the Unity editor.
+
+## <a name="preview"></a> Preview
+
+<p align="center">
+  <img src="Assets/GIF/preview-1.gif" alt="Preview 1" title="Preview 1" width="500">
+</p>
+
+<p align="center">
+  <img src="Assets/GIF/preview-2.gif" alt="Preview 2" title="Preview 2" width="500">
+</p>
+
+<p align="center">
+  <img src="Assets/GIF/preview-3.gif" alt="Preview 3" title="Preview 3" width="500">
+</p>
+
+<p align="center">
+  <img src="Assets/GIF/preview-4.gif" alt="Preview 4" title="Preview 4" width="500">
+</p>
+
+<p align="center">
+  <img src="Assets/GIF/preview-5.gif" alt="Preview 5" title="Preview 5" width="500">
+</p>
 
 ## <a name="license"></a> License
 
