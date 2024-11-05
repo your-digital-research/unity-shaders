@@ -522,13 +522,13 @@
     "m_Name": "Properties",
     "m_ChildObjectList": [
         {
-            "m_Id": "e9628a4c4ace4264b1ce46cf2c9eeae5"
+            "m_Id": "efa62e81b1254530964f1d4fdbef910d"
         },
         {
             "m_Id": "6f565b1310d0485cb3c6554bd5f2fcbe"
         },
         {
-            "m_Id": "efa62e81b1254530964f1d4fdbef910d"
+            "m_Id": "e9628a4c4ace4264b1ce46cf2c9eeae5"
         },
         {
             "m_Id": "ff018c3fa0784da990a48cd3243273c7"
@@ -1333,7 +1333,7 @@
     "hlslDeclarationOverride": 0,
     "m_Hidden": false,
     "m_Value": {
-        "m_SerializedTexture": "{\"texture\":{\"fileID\":2800000,\"guid\":\"250449e122dce4dcfb9ab3f2f61181e9\",\"type\":3}}",
+        "m_SerializedTexture": "{\"texture\":{\"instanceID\":0}}",
         "m_Guid": ""
     },
     "isMainTexture": false,
@@ -1634,7 +1634,7 @@
     "overrideHLSLDeclaration": false,
     "hlslDeclarationOverride": 2,
     "m_Hidden": false,
-    "m_Value": 0.5,
+    "m_Value": 0.0,
     "m_FloatType": 1,
     "m_RangeValues": {
         "x": 0.0,
